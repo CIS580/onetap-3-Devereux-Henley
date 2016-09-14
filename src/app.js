@@ -16,6 +16,7 @@ for(var i=0; i < 20; i++) {
     y: Math.random() * 20 + 100
   }));
 }
+snakes.sort(function (snake1, snake2) { if(snake1.y > snake2.y) {return 1;} else {return -1;}});
 
 /**
  * @function masterLoop
@@ -53,6 +54,6 @@ function update(elapsedTime) {
 function render(elapsedTime, ctx) {
   ctx.fillStyle = "lightblue";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  player.render(elapsedTime, ctx);
   snakes.forEach(function(snake){snake.render(elapsedTime, ctx);});
+  player.render(elapsedTime, ctx);
 }
